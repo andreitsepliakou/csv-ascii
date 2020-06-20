@@ -7,7 +7,7 @@ module CSVASCII
     end
 
     def height
-      cells.map(&:height).max
+      cells.map(&:height).max || 0
     end
   end
 end

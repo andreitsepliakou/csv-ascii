@@ -2,7 +2,7 @@ module CSVASCII
   module Cell
     class Base
       def initialize(data)
-        @data = Array(data)
+        @data = Array(data || "")
       end
 
       def to_s(cell_data_index)

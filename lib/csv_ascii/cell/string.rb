@@ -6,11 +6,15 @@ module CSVASCII
       SEPARATOR = " "
 
       def initialize(data)
-        @data = data.split(SEPARATOR)
+        @data = data&.split(SEPARATOR) || Array("")
       end
 
       def height
         data.count
+      end
+
+      def align
+        :left
       end
     end
   end

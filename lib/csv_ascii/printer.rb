@@ -1,11 +1,5 @@
 module CSVASCII
   class Printer
-    ALIGNS = {
-      CSVASCII::Cell::Int => "right",
-      CSVASCII::Cell::String => "left",
-      CSVASCII::Cell::Money => "right"
-    }
-
     def initialize(rows, column_widths:)
       @rows = rows
       @column_widths = column_widths
@@ -39,7 +33,7 @@ module CSVASCII
     def print_cell(cell, cell_index, cell_data_index)
       value = cell.to_s(cell_data_index)
       spaces_count = column_widths[cell_index] - value.length
-      if ALIGNS[cell.class] == "right"
+      if cell.align == :right
         spaces_count.times { print " " }
         print value
       else
